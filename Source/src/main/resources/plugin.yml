@@ -1,0 +1,10 @@
+name: Baloss
+version: ${project.version}
+main: com.zivdekel.baloss.Baloss
+api-version: 1.13
+authors: [RiesPanda]
+depend: [Vault]
+commands:
+  reload:
+    description: Reloads the plugin.
+    usage: /reload
