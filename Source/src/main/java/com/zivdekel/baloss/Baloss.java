@@ -14,6 +14,11 @@ public final class Baloss extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
 
+        if (!setupEconomy()) {
+            System.out.println("No economy plugin found. Disabling...");
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
 
 
         getConfig().options().copyDefaults();

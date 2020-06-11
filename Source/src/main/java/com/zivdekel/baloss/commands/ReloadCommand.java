@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 public class ReloadCommand implements CommandExecutor {
 
-    private Baloss loss;
+    private final Baloss loss;
 
     public ReloadCommand(Baloss loss) {
         this.loss = loss;
@@ -18,24 +18,17 @@ public class ReloadCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        String perm = loss.getConfig().getString("perm-name");
-
         Player player = (Player) sender;
-        if (perm != null) {
-            if (command.getName().equalsIgnoreCase("reload")) {
-                if (player.hasPermission(perm)) {
-                    loss.reloadConfig();
-                    player.sendMessage(ChatColor.GREEN + "Baloss has been reloaded successfully!");
-                } else {
-                    player.sendMessage(ChatColor.RED + "You do not have permission to use this command! If you think this is an error, please contact a server administrator or the plugin developer!");
-                }
+        if (command.getName().equalsIgnoreCase("reload")) {
+            if (player.hasPermission("Baloss.reload")) {
+                loss.reloadConfig();
+                player.sendMessage(ChatColor.GREEN + "Baloss has been reloaded successfully!");
             } else {
-                player.sendMessage(ChatColor.GREEN + "Available commands: \n - '/reload'");
+                player.sendMessage(ChatColor.RED + "You do not have permission to use this command! If you think this is an error, please contact a server administrator or the plugin developer!");
             }
         } else {
-            return false;
+            player.sendMessage(ChatColor.GREEN + "Available commands: \n - '/reload'");
         }
-
 
         return true;
     }

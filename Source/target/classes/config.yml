@@ -3,13 +3,23 @@
 # Discord - RiesPanda#3952
 # Spigot - https://www.spigotmc.org/members/riespanda.710163/
 
-
-# This will change the amount lost when dying (Percentage).
+# Please note, if the player has a Baloss.lose.X permission, this will not change anything for that specific player.
+# This will change the default amount lost when dying (Percentage).
 lost-balance: 25
 
 # This will change the message when a player dies.
 # (Keep in mind, the amount will always appear after the message).
 death-message: "&6You have died and lost "
 
-# This will change the permission's name
-perm-name: ""
+# This will change whether the player with the bypass permissions get's a message on death.
+bypass-msg: false
+
+# If the bypass message is set to true, this will change the message sent
+bypass-sent-message: "&3Since you have the Baloss.bypass permission, you did not lose money on death."
+
+# This will change the disabled worlds
+# This means when the player dies in that specific world, they won't lose balance.
+disabled-worlds:
+- "world2"
+- "world3"
+- "world4"
